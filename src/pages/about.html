@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de - CineCache</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #F5E6D3 0%, #FFE6B3 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="max-w-3xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-xl p-8 shadow-lg">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">🎬 Acerca de CineCache</h1>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">¿Qué es CineCache?</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    CineCache es una Progressive Web App (PWA) diseñada para demostrar las mejores prácticas
+                    en caching y manejo offline. Busca películas usando la API OMDb y las cachea inteligentemente
+                    para que funcione sin conexión a internet.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">5 Estrategias de Caching</h2>
+                <div class="space-y-3">
+                    <div class="p-4 bg-blue-100 rounded-lg">
+                        <p class="font-bold text-blue-800">🔵 Cache First (App Shell)</p>
+                        <p class="text-sm text-blue-700">HTML, CSS, JS cacheados durante install</p>
+                    </div>
+                    <div class="p-4 bg-green-100 rounded-lg">
+                        <p class="font-bold text-green-800">🟢 Network First (API)</p>
+                        <p class="text-sm text-green-700">Datos frescos con fallback a caché offline</p>
+                    </div>
+                    <div class="p-4 bg-yellow-100 rounded-lg">
+                        <p class="font-bold text-yellow-800">🟡 Stale While Revalidate (Imágenes)</p>
+                        <p class="text-sm text-yellow-700">Caché rápido + actualización en bg</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-3">Característica: "Leer Después"</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    Guarda tus películas favoritas en localStorage para leerlas después. Los datos persisten
+                    incluso después de cerrar la app.
+                </p>
+            </section>
+
+            <a href="/" class="inline-block bg-gradient-to-r from-purple-400 to-pink-400 text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg transition-all">
+                ← Volver al Inicio
+            </a>
+        </div>
+    </div>
+</body>
+</html>

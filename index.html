@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1e3a8a">
+    <title>CineCache - PWA de Películas</title>
+
+    <!-- Tailwind CSS -->
+    <script>
+        // Suppress Tailwind CDN production warning
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        console.error = function(...args) {
+            if (args[0]?.toString?.().includes?.('cdn.tailwindcss.com')) return;
+            originalError.apply(console, args);
+        };
+        
+        console.warn = function(...args) {
+            if (args[0]?.toString?.().includes?.('cdn.tailwindcss.com')) return;
+            originalWarn.apply(console, args);
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🎬</span>
+                <div>
+                    <h1 class="text-xl font-bold">CineCache</h1>
+                    <p class="text-xs text-gray-300">PWA - 5 Estrategias de Caching</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full" id="statusIndicator"></div>
+                <span id="statusText" class="text-sm">Conectado</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-6xl mx-auto px-4 py-6">
+        <!-- Search -->
+        <section class="mb-6">
+            <div class="bg-gray-100 rounded-lg p-4 border-2 border-blue-900 shadow-sm">
+                <h2 class="text-lg font-bold text-gray-900 mb-3">🔍 Buscar Películas</h2>
+                <div class="flex gap-2 mb-2">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Ej: Inception, Avatar..."
+                        class="flex-1 bg-white border-2 border-blue-900 rounded px-3 py-2 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-blue-700"
+                    >
+                    <button id="searchBtn" class="bg-blue-900 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded text-sm transition-colors">
+                        🔍 Buscar
+                    </button>
+                </div>
+                <p class="text-xs text-gray-600">💡 Busca y guarda películas para leer después</p>
+            </div>
+        </section>
+
+        <!-- Error -->
+        <div id="errorDiv" class="hidden mb-4 p-3 rounded bg-red-100 border-2 border-red-400 text-red-700 text-sm">
+            <p id="errorMessage"></p>
+        </div>
+
+        <!-- Loading -->
+        <div id="loadingDiv" class="hidden text-center py-6">
+            <div class="inline-block w-6 h-6 border-3 border-blue-900 border-t-transparent rounded-full animate-spin"></div>
+            <p class="text-gray-600 text-sm mt-2">Buscando...</p>
+        </div>
+
+        <!-- Grid de Películas -->
+        <section class="mb-8">
+            <h2 class="text-lg font-bold text-gray-900 mb-3">🎥 Películas</h2>
+            <div id="moviesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                <div class="col-span-full text-center py-8 text-gray-500 text-sm">
+                    Busca una película para comenzar
+                </div>
+            </div>
+        </section>
+
+        <!-- Leer Después -->
+        <section>
+            <h2 class="text-lg font-bold text-gray-900 mb-3">📚 Leer Después</h2>
+            <div id="readLaterGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                <div class="col-span-full text-center py-8 text-gray-500 text-sm">
+                    Aún no hay películas guardadas
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 text-center text-xs py-3 mt-8 border-t border-gray-700">
+        <p>CineCache © 2024 | Service Worker: <span id="swStatus" class="font-bold text-gray-200">Revisando...</span></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="src/js/app.js"></script>
+</body>
+</html>

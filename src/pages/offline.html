@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin Conexión - CineCache</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 flex items-center justify-center min-h-screen">
+    <div class="text-center max-w-md">
+        <div class="text-6xl mb-4">📵</div>
+        <h1 class="text-3xl font-bold mb-2 text-gray-900">Sin Conexión</h1>
+        <p class="text-gray-600 mb-4">No hay conexión a internet disponible</p>
+
+        <div class="bg-gray-100 border-2 border-gray-300 rounded p-4 mb-4">
+            <p class="text-sm text-gray-700">
+                ✅ Puedes ver películas que ya guardaste en "Leer Después"
+            </p>
+        </div>
+
+        <button onclick="window.history.back()" class="bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded transition-colors">
+            ← Volver
+        </button>
+
+        <div class="bg-gray-100 rounded p-4 mt-4 border border-gray-300">
+            <h3 class="font-bold text-gray-900 mb-2">💡 Estrategias de Caching:</h3>
+            <ul class="text-xs text-gray-700 text-left space-y-1">
+                <li>🔵 <strong>Cache First:</strong> App Shell</li>
+                <li>🟢 <strong>Network First:</strong> API</li>
+                <li>🟡 <strong>SWR:</strong> Imágenes</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
