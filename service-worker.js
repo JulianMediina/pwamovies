@@ -7,8 +7,8 @@ const CACHE_NAME = {
 const PRECACHE_URLS = [
     '/',
     './index.html',
-    './app.js',
-    './offline.html',
+    './src/js/app.js',
+    './src/css/styles.css',
     './src/pages/offline.html'
 ];
 
@@ -127,7 +127,7 @@ function cacheFirst(request) {
                     return response;
                 })
                 .catch(function() {
-                    return caches.match('./offline.html')
+                    return caches.match('./src/pages/offline.html')
                         .then(function(offlineResponse) {
                             return offlineResponse || new Response('Sin conexión', { status: 503 });
                         });
