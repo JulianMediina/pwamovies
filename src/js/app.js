@@ -197,7 +197,7 @@ function createMovieCard(movie) {
         + '<p class="text-xs text-gray-600">⭐ ' + (movie.imdbRating || 'N/A') + '</p>'
         + '<div class="mt-2 space-y-1">'
         + '<button class="w-full bg-blue-900 hover:bg-blue-800 text-white text-xs py-1 rounded font-bold transition-colors" onclick="addReadLater(\'' + movie.imdbID + '\', \'' + movie.Title.replace(/'/g, "\\'") + '\', \'' + (movie.Poster || '').replace(/'/g, "\\'") + '\')">'
-        + '📌 Leer Después'
+        + '📌 Ver Después'
         + '</button>'
         + '</div>'
         + '</div>';
@@ -216,8 +216,8 @@ function addReadLater(imdbID, title, poster) {
     readLater.push({ imdbID: imdbID, title: title, poster: poster, addedAt: new Date().toISOString() });
     localStorage.setItem('readLater', JSON.stringify(readLater));
 
-    console.log('💾 Guardado para leer después: ' + title);
-    alert('✅ Guardado en "Leer Después"');
+    console.log('🎬 Guardado para ver después: ' + title);
+    alert('✅ Guardado en "Ver Después"');
 
     loadReadLater();
 }
